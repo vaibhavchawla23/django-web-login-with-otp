@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+  {% if user.is_authenticated and not user.is_doctor %}
+<h3>Patient Login</h3>  
+<h5>Hi {{request.user}} ! </h5><br>
+Age: {{ object.Age  }}<br>
+Height: {{ object.Height  }}<br>
+Weight: {{ object.Weight  }}<br><br><br>
+Next Appointment with : Dr.{{aobject.doctor_id}}<br>
+Department: {{Doctor.Dept}}
+ {% endif %}
+   {% if user.is_authenticated and user.is_doctor %}
+    <h3>DOCTOR Login</h3>
+<h5>Hi {{request.user}} ! </h5><br>
+
+Next Patient: <b>{{aobject.patient_id}}</b><br>
+ {% endif %}
+<br>
+<br>
+
+<form method="POST" action="logout/">
+   {% csrf_token %}
+<button type="submit" class ="btn btn-danger">Logout</button>
+</form><br><br><br>
+<p>rendered from  templates/profile.html</p>
+{% endblock %}
+

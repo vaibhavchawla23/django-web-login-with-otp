@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <h3>User Authentication</h3>
+    <marquee> <u>OTP is refreshed on <b>every</b> access</u>.<br><u>Please make sure to use the latest one.</u> </marquee> 
+    <div class ="row">
+      <div class ="col">
+            <form autocomplete="off"  method="POST" action="">
+                  {% csrf_token %}
+                  {{ form|crispy }}
+                  <button type="submit" class ="btn btn-danger">Verify</button>
+            </form>
+      </div>
+    </div>
+<p>rendered from  templates/verify.html</p>
+{% endblock %}
