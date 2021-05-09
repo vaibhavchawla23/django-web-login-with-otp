@@ -53,13 +53,13 @@ The
 CustomUser is inherited again to make two variants of users differentiated by a flag is_doctor namely Patients & Doctors. Username and Passwords are same for ease usability and to show Case sensitivity.
 
 - Patients {Already Created}
--- Alice
--- Bob
--- Carol
+  - Alice
+  - Bob
+  - Carol
 - Doctors {Already Created}
--- Dave 
--- Erin
--- Frank
+  - Dave 
+  - Erin
+  - Frank
 
 ```python
 class CustomUser(AbstractUser):
@@ -81,10 +81,10 @@ As for the project the OTP is generated and displayed on the terminal hosting th
 OTP Refreshed! c45d5A # <<=== NEW OTP 
 ```
 Salient features for the code here include:
--- Generate 6 Character Hex OTP to increase the complexity. 
+  - Generate 6 Character Hex OTP to increase the complexity. 
 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F'].
--- OTP are case sensitive.
--- OTP is refreshed whenever used to avoid re-use of stale OTP.
+  - OTP are case sensitive.
+  - OTP is refreshed whenever used to avoid re-use of stale OTP.
 
 ```python
 class Code(models.Model):
@@ -178,8 +178,8 @@ The system is tests on various real-life flows for the following scenarios:
 - Username Password and OTP are Case Sensitive.
 - Protection against Stale OTP.
 - Independent Profile Pages for Patient and Doctor using the same login page.
--- Patient can see Appointment details like Doctor Name and Department.
--- Doctor can see upcoming Patient Name.
+  - Patient can see Appointment details like Doctor Name and Department.
+  - Doctor can see upcoming Patient Name.
 - No DJANGO Admin Login; This ensures that No user has Admin access database as admin.
 - Passwords in the Database are stored in encrypted format
 - The system also logs confirmation of OTP generation and their requesting usernames. 
